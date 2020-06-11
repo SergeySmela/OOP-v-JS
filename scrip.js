@@ -77,3 +77,24 @@ class Test {
 let a = new Test();
 a.testProp = 'ivan';
 console.log('[a.testProp]', a.testProp);
+
+class Validate {
+    constructor(value) {
+        this.a = value;
+    }
+    static isNumber(number) {
+        if (typeof number === "number") {return true}
+        return false;
+    }
+    static isInt(number) {
+        if (Number.isInteger(number)) {return true}
+        else if (typeof number === "number" && !Number.isInteger(number)) {return false}
+        return false;
+    }
+}
+
+console.log('[Validate.isNumber(6)]', Validate.isNumber(6));
+console.log('[Validate.isNumber(qwerty)]', Validate.isNumber("qwerty"));
+console.log('[Validate.isInt(98)]', Validate.isInt(98));
+console.log('[Validate.isInt(98.3)]', Validate.isInt(98.3));
+console.log('[Validate.isInt(sdfg)]', Validate.isInt("sdfg"));
